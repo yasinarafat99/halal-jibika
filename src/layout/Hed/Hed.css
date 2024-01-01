@@ -19,7 +19,6 @@ nav {
   font-size: 35px;
   color: #ffffff;
   line-height: 80px;
-  /* padding: 0 50px; */
   font-weight: bold;
 }
 .menu {
@@ -39,7 +38,7 @@ nav {
   border-radius: 3px;
 }
 a.favorite {
-  background-color: #46ae4d;
+  /* background-color: #46ae4d; */
 }
 a.active,
 a:hover {
@@ -47,6 +46,18 @@ a:hover {
   color: #ffffff;
   transition: 0.5s;
 }
+/* Sign Up */
+.signup{
+  border: 1px solid #fff;
+  background-color: hsl(141, 93%, 37%);
+}
+li a.signup{
+  color: #FFFFFF;
+  border-radius: 5px;
+  font-weight: bolder;
+
+}
+/* Sign Up */
 .checkbtn {
   color: #ffffff;
   font-size: 30px;
@@ -60,17 +71,14 @@ a:hover {
   display: none;
 }
 @media (max-width: 952px) {
-  nav{
+  nav {
     padding: 0 20px;
   }
   .logo img {
     width: 215px;
     margin: 12px 0px;
   }
-  /* .logo {
-    font-size: 30px;
-    padding-left: 50px;
-  } */
+
   .menu li a {
     font-size: 16px;
   }
@@ -78,9 +86,6 @@ a:hover {
 @media (max-width: 854px) {
   .checkbtn {
     display: block;
-  }
-  nav{
-    /* padding: 0 16px; */
   }
   .menu {
     position: absolute;

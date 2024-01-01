@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"; //  Import NavLink
-import { FaBars } from "react-icons/fa";    // Import Icon from react
+import { FaBars } from "react-icons/fa"; // Import Icon from react
 import logo from "../../assets/images/halalaJibikaLogo.png"; // iogo-img import
-import "./Hed.css";  // css import
+import "./Hed.css"; // css import
 
 function Head() {
   return (
@@ -32,6 +32,11 @@ function Head() {
             </li>
             <li>
               <NavLink to={"/contact"}>Contact</NavLink>
+            </li>
+            <li>
+              <NavLink className="signup" to={"/signup"}>
+                Sign up
+              </NavLink>
             </li>
           </ul>
         </div>
