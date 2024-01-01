@@ -5,8 +5,9 @@ import Jobs from "../pages/Jobs/Jobs";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import Favorite from "../pages/Favorite/Favorite";
-import Signup from "../pages/Signup/Signup";
 import NotFound from "../pages/NotFound/NotFound";
+import Signup from "../pages/Register/Signup/Signup";
+import SignIn from "../pages/Register/SignIn/SignIn";
 
 const routes = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const routes = createBrowserRouter([
   {
     path:'signup',
     element: <Signup />
+  },
+  {
+    path:'signin',
+    element: <SignIn />
   },
   {
     path:'*',

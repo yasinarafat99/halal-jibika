@@ -5,6 +5,7 @@ import logo from "../../assets/images/logo-no-background.png";
 function Header() {
   return (
     <>
+      <div className="full_width">
       <nav className="navbar">
         <div className="logo">
           <img src={logo} alt="" />
@@ -15,9 +16,11 @@ function Header() {
           <NavLink to={'/about'}>About</NavLink>
           <NavLink to={'/contact'}>Contact</NavLink>
           <NavLink to={'/favorite'}>Favorite</NavLink>
-          <NavLink to={'/signup'}>Sign up</NavLink>
+          <NavLink className="signup" to={'/signup'}>Sign up</NavLink>
+          {/* <NavLink></NavLink> */}
         </ul>
       </nav>
+      </div>
     </>
   );
 }
