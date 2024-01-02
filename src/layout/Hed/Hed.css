@@ -37,15 +37,18 @@ nav {
   padding: 7px 13px;
   border-radius: 3px;
 }
-a.favorite {
-  /* background-color: #46ae4d; */
-}
-a.active,
+
+.menu ul li a.active,
 a:hover {
   background-color: #5294ff;
   color: #ffffff;
   transition: 0.5s;
 }
+.menu ul li a:hover{
+  background-color: #5294ff;
+
+}
+
 /* Sign Up */
 .signup{
   border: 1px solid #fff;
@@ -67,8 +70,16 @@ li a.signup{
   cursor: pointer;
   display: none;
 }
+
+
+
 #check {
   display: none;
+}
+@media (max-width: 1150px) {
+  nav{
+    position: fixed;
+  }
 }
 @media (max-width: 952px) {
   nav {
@@ -96,6 +107,7 @@ li a.signup{
     left: -100%;
     top: 80px;
     transition: all 0.7s;
+    
   }
   .menu ul li {
     display: block;
@@ -114,8 +126,13 @@ li a.signup{
   .logo img {
     position: fixed;
   }
+ nav{
+  position: fixed;
 
+ }
   #check:checked ~ .menu {
     left: 0;
+    height: 100vh;
   }
+ 
 }

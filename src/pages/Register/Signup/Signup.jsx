@@ -1,10 +1,47 @@
-import './Signup.css'
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useState } from "react";
+import "./Signup.css";
 import { Link } from "react-router-dom";
+import { auth } from "../../../Firbase/firbase.config";
+import { toast } from "react-toastify";
 
 function Signup() {
-  const handleSignUp = (() => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmpassword: "",
+  });
+const [signInWithGoogle, googleuser, googleloading, googleerror] = useSignInWithGoogle(auth);
 
-  })
+
+  // const handleChange
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  // formData Pass //
+  const email = formData.email;
+  const password = formData.password;
+  const confirmpassword = formData.confirmpassword;
+  // formData Pass //
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    if (password.length < 6) {
+      return toast.error("pls input 6 digit");
+    }
+    if (password !== confirmpassword) {
+      return toast.error("Password doesn't match!");
+    } else {
+      createUserWithEmailAndPassword(email, password);
+      return toast.success("Signup Succesfull");
+    }
+
+    console.log(email, password);
+  };
   return (
     <>
       <section>
@@ -21,6 +58,7 @@ function Signup() {
                     <label> Full Name </label>
                     <div>
                       <input
+                        onChange={handleChange}
                         name="name"
                         type="text"
                         placeholder="Full Name"
@@ -32,6 +70,7 @@ function Signup() {
                     <label className=""> Email address </label>
                     <div>
                       <input
+                        onChange={handleChange}
                         name="email"
                         type="email"
                         placeholder="Email"
@@ -45,6 +84,7 @@ function Signup() {
                     </div>
                     <div>
                       <input
+                        onChange={handleChange}
                         name="password"
                         type="password"
                         placeholder="Password"
@@ -59,6 +99,7 @@ function Signup() {
                     </div>
                     <div>
                       <input
+                        onChange={handleChange}
                         name="confirmpassword"
                         type="password"
                         placeholder="Confirm Password"
@@ -76,7 +117,7 @@ function Signup() {
                 </div>
               </form>
               <div>
-                <button type="button" className="Signup_Google signUpBtn">
+                <button onClick={() =>signInWithGoogle()} type="button" className="Signup_Google signUpBtn">
                   Sign up with Google
                 </button>
                 <button type="button" className="Signup_Facebook signUpBtn">

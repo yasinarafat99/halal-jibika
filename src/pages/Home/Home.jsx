@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import banner from "../../assets/images/removehalalJibikaTemplae-removebg-preview.png";
 import "./Home.css";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../Firbase/firbase.config";
 function Home() {
+  const [user] = useAuthState(auth)
   return (
     <>
       <div className="home_container">
@@ -10,7 +13,7 @@ function Home() {
             <div className="banner_text">
               <h1>Unlock Your Career Potential with Our Job Portal.</h1>
               <div className="exploreBtn">
-                <Link to={"/signin"}>
+                <Link to={!user ? "/signin" : "/jobs"}>
                   <button>Explore Now</button>
                 </Link>
               </div>

@@ -1,8 +1,14 @@
 import React from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../Firbase/firbase.config';
 
 function Favorite() {
+  const [user] = useAuthState(auth)
+  console.log(user)
   return (
-    <div>Favorite</div>
+    <>
+      <h1>Im Favorite PAge</h1>
+    </>
   )
 }
 
