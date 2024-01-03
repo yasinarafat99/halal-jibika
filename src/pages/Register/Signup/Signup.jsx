@@ -1,11 +1,13 @@
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useState } from "react";
 import "./Signup.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../../Firbase/firbase.config";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 function Signup() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,6 +30,14 @@ const [signInWithGoogle, googleuser, googleloading, googleerror] = useSignInWith
   const confirmpassword = formData.confirmpassword;
   // formData Pass //
 
+  if(googleuser){
+    navigate("/");
+    return Swal.fire({
+      title: "Successfully signed in",
+      icon: "success"
+    });
+  }
+
   const handleSignUp = (e) => {
     e.preventDefault();
     if (password.length < 6) {
@@ -37,11 +47,15 @@ const [signInWithGoogle, googleuser, googleloading, googleerror] = useSignInWith
       return toast.error("Password doesn't match!");
     } else {
       createUserWithEmailAndPassword(email, password);
+      navigate("/");
       return toast.success("Signup Succesfull");
     }
 
-    console.log(email, password);
   };
+
+  const handleGoogleSignUp = ()=>{
+    signInWithGoogle();
+  }
   return (
     <>
       <section>
@@ -117,7 +131,7 @@ const [signInWithGoogle, googleuser, googleloading, googleerror] = useSignInWith
                 </div>
               </form>
               <div>
-                <button onClick={() =>signInWithGoogle()} type="button" className="Signup_Google signUpBtn">
+                <button onClick={handleGoogleSignUp} type="button" className="Signup_Google signUpBtn">
                   Sign up with Google
                 </button>
                 <button type="button" className="Signup_Facebook signUpBtn">

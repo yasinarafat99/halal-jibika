@@ -1,10 +1,29 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLoaderData } from "react-router-dom";
 import banner from "../../assets/images/removehalalJibikaTemplae-removebg-preview.png";
 import "./Home.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../Firbase/firbase.config";
+import { useEffect, useState } from "react";
+import { CiLink } from "react-icons/ci";
+import { FaAws } from "react-icons/fa";
 function Home() {
-  const [user] = useAuthState(auth)
+  const [user] = useAuthState(auth);
+
+  const [latestJobs, setLatestJobs] = useState();
+
+  console.log(latestJobs);
+  useEffect(() => {
+    const latestJobsFunc = async () => {
+      try {
+        const data = await fetch("http://localhost:9000/jobs");
+        const toJSON = await data.json();
+        setLatestJobs(toJSON);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    latestJobsFunc();
+  }, []);
   return (
     <>
       <div className="home_container">
@@ -24,16 +43,12 @@ function Home() {
           </div>
           <div className="right_container">
             <h3>Latest Jobs</h3>
-            <ul>
-              <li>
-                1. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Tempore voluptate explicabo totam natus .
-              </li>
-              <li>
-                1. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Tempore voluptate explicabo totam natus .
-              </li>
-            </ul>
+            {latestJobs?.slice(0, 5).map((job) => (
+              <ul key={job.id}>
+                <NavLink> <CiLink className="link" /> {job.title}</NavLink>
+               
+              </ul>
+            ))}
           </div>
         </div>
       </div>

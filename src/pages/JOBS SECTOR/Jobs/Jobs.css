@@ -69,5 +69,24 @@
   /* color: black; */
 }
 
-
 /* Responsive */
+
+@media (max-width: 1114px) {
+  .jobFullWidth {
+    padding-top: 90px;
+  }
+  .jobCard{
+    margin-top: 15px;
+
+  }
+}
+@media (max-width: 885px) {
+  .jobFullWidth {
+    padding-top: 90px;
+  }
+  .jobCard {
+    width: 100%;
+    margin-top: 15px;
+    height: 100%;
+  }
+}

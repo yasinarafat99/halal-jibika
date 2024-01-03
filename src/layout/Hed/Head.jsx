@@ -8,9 +8,7 @@ import { useState } from "react";
 
 function Head() {
   const [user] = useAuthState(auth);
-  console.log(user)
   const [signOut, loading, error] = useSignOut(auth);
-  // const [isUser, setIsUser] = useState(false);
   return (
     <>
       <nav>
@@ -19,7 +17,10 @@ function Head() {
           <FaBars />
         </label>
         <label className="logo">
-          <img src={logo} alt="Halal Jibika" />
+          <NavLink to={"/"}>
+            {" "}
+            <img src={logo} alt="Halal Jibika" />{" "}
+          </NavLink>
         </label>
         <div className="menu">
           <ul>
@@ -30,31 +31,33 @@ function Head() {
               <NavLink to={"/jobs"}>Jobs</NavLink>
             </li>
             <li>
-              <NavLink className="favorite" to={!user ? "/signin" :"/favorite"}>
-                Favorite
-              </NavLink>
+              <NavLink to={"/favorite"}>Favorite</NavLink>
             </li>
             <li>
-              <NavLink to={"/about"}>About</NavLink>{" "}
+              <NavLink to={"/about"}>About</NavLink>
             </li>
             <li>
               <NavLink to={"/contact"}>Contact</NavLink>
             </li>
             {
-              !user ? <li>
-              <NavLink className="signup" to={"/signup"}>
-                Sign up
-              </NavLink>
-            </li>
-            :  <li>
-              {" "}
-              <NavLink className="userProfile">
-                <img onClick={() => signOut()} className="userImage" src={user?.photoURL} alt="" />
-              </NavLink>{" "}
-            </li>
-            }
+              !user ? (
+                <li>
+                  <NavLink className="signup" to={"/signup"}>
+                    Sign up
+                  </NavLink>
+                </li>
+              ) : (
+                <img
+                  onClick={() => signOut()}
+                  src={user?.photoURL}
+                  alt="user"
+                />
+              )
 
-           
+              // <NavLink className="userProfile">
+              //     <img onClick={() => signOut()} className="userImage" src={user?.photoURL} alt="" />
+              //   </NavLink>
+            }
           </ul>
         </div>
       </nav>

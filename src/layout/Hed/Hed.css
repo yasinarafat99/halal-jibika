@@ -30,6 +30,18 @@ nav {
   line-height: 80px;
   margin: 0 5px;
 }
+.menu ul img {
+  margin-top: 10px;
+  position: absolute;
+  align-items: center;
+  width: 4%;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.menu ul img:hover{
+  /* background-color: #fff; */
+  border: .5px solid #f3d6d6;
+}
 .menu li a {
   color: #ffffff;
   font-size: 18px;
@@ -44,21 +56,19 @@ a:hover {
   color: #ffffff;
   transition: 0.5s;
 }
-.menu ul li a:hover{
+.menu ul li a:hover {
   background-color: #5294ff;
-
 }
 
 /* Sign Up */
-.signup{
+.signup {
   border: 1px solid #fff;
   background-color: hsl(141, 93%, 37%);
 }
-li a.signup{
-  color: #FFFFFF;
+li a.signup {
+  color: #ffffff;
   border-radius: 5px;
   font-weight: bolder;
-
 }
 /* Sign Up */
 .checkbtn {
@@ -71,13 +81,14 @@ li a.signup{
   display: none;
 }
 
-
-
 #check {
   display: none;
 }
+
+/* ********** Header Responsive ************ */
+
 @media (max-width: 1150px) {
-  nav{
+  nav {
     position: fixed;
   }
 }
@@ -107,7 +118,6 @@ li a.signup{
     left: -100%;
     top: 80px;
     transition: all 0.7s;
-    
   }
   .menu ul li {
     display: block;
@@ -126,13 +136,11 @@ li a.signup{
   .logo img {
     position: fixed;
   }
- nav{
-  position: fixed;
-
- }
+  nav {
+    position: fixed;
+  }
   #check:checked ~ .menu {
     left: 0;
     height: 100vh;
   }
- 
 }

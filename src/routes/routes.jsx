@@ -1,58 +1,74 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home/Home";
 import MainLayout from "../layout/MainLayout/MainLayout";
-import Jobs from "../pages/Jobs/Jobs";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import Favorite from "../pages/Favorite/Favorite";
 import NotFound from "../pages/NotFound/NotFound";
 import Signup from "../pages/Register/Signup/Signup";
 import SignIn from "../pages/Register/SignIn/SignIn";
+import Jobs from "../pages/JOBS SECTOR/Jobs/Jobs";
+import GetJobs from "../pages/JOBS SECTOR/GetJobs/GetJobs";
+import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
     children: [
-        {
-            path:'/',
-            element: <Home />
-        },
       {
-        path: "/home",
+        path: "/",
         element: <Home />,
       },
       {
-        path:'/jobs',
-        element:<Jobs />,
-        loader:(() => fetch('http://localhost:9000/jobs'))
+        path: "/home",
+        element: <Home />,
+        // loader:(() => fetch('http://localhost:9000/jobs'))
       },
       {
-        path:'/about',
-        element: <About />
+        path: "/getjobs",
+        element: <GetJobs />,
+        // loader:(() => fetch('http://localhost:9000/jobs'))
       },
       {
-        path:'/contact',
-        element: <Contact />
+        path: "/jobs",
+        element: <Jobs />,
+        loader: () => fetch("http://localhost:9000/jobs"),
       },
       {
-        path:'/favorite',
-        element: <Favorite />
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: (
+          <PrivateRoute>
+            <Contact/>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/favorite",
+        element: (
+          <PrivateRoute>
+            <Favorite />
+          </PrivateRoute>
+        ),
       },
     ],
   },
   {
-    path:'signup',
-    element: <Signup />
+    path: "signup",
+    element: <Signup />,
   },
   {
-    path:'signin',
-    element: <SignIn />
+    path: "signin",
+    element: <SignIn />,
   },
   {
-    path:'*',
-    element: <NotFound />
-  }
+    path: "*",
+    element: <NotFound />,
+  },
 ]);
 
 export default routes;
