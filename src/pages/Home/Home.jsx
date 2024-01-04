@@ -31,7 +31,7 @@ function Home() {
             <div className="banner_text">
               <h1>Unlock Your Career Potential with Our Job Portal.</h1>
               <div className="exploreBtn">
-                <Link to={!user ? "/signin" : "/jobs"}>
+                <Link to={!user ? "/signin" : "/getjobs"}>
                   <button>Explore Now</button>
                 </Link>
               </div>
