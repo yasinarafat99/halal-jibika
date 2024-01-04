@@ -19,7 +19,8 @@ function Favorite() {
     favDataFunc();
   },[])
   return (
-    <> <h1>Im Favorite page</h1>
+    <> 
+    <h1>Im Favorite page</h1>
       <div>{favData?.map(fav=>(
         <div key={fav.id}>{fav.title}</div>
       ))}</div>
