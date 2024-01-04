@@ -17,6 +17,11 @@ function Signup() {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
+    if(error || googleerror){
+      console.log(error)
+      console.log(googleerror)
+    }
+
   if (googleuser || user) {
     navigate("/");
     return Swal.fire({
@@ -25,7 +30,7 @@ function Signup() {
     });
   }
 
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
 
     const name = e.target.name.value;
@@ -40,7 +45,7 @@ function Signup() {
     if (password !== confirmpassword) {
       return toast.error("Password doesn't match!");
     } else {
-      createUserWithEmailAndPassword(email, password);
+      await createUserWithEmailAndPassword(email, password);
       return toast.success("Signup Succesfull");
     }
   };
