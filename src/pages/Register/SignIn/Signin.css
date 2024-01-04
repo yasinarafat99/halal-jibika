@@ -1,17 +1,16 @@
+.signin_fullWith {
+  margin-top: 5rem;
+}
 .signin_container {
+  max-width: 100%;
+  height: 100%;
   display: flex;
-  max-width: 675px;
-  height: 500px;
-  margin: 0 auto;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  background: #ffffff;
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+  rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; */
 }
-.signin_form_container {
-  display: flex;
-  margin-top: 2rem;
-}
+
 section div {
   display: flex;
   gap: 10px;
@@ -88,4 +87,15 @@ input:focus {
 }
 .signup_link a:hover {
   color: rgb(63, 53, 238);
+  text-decoration: underline;
+}
+.signup_link a:hover, .forget_pass a:hover{
+  background: none;
+}
+.forget_pass a, .signup_link a{
+  color: blue;
+}
+
+.errorMsg{
+  color: red;
 }

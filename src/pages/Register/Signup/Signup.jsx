@@ -1,5 +1,7 @@
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { useState } from "react";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import "./Signup.css";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../../Firbase/firbase.config";
@@ -8,38 +10,32 @@ import Swal from "sweetalert2";
 
 function Signup() {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmpassword: "",
-  });
-const [signInWithGoogle, googleuser, googleloading, googleerror] = useSignInWithGoogle(auth);
+
+  const [signInWithGoogle, googleuser, googleloading, googleerror] =
+    useSignInWithGoogle(auth);
 
 
-  // const handleChange
-  const handleChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
-  };
 
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
-  // formData Pass //
-  const email = formData.email;
-  const password = formData.password;
-  const confirmpassword = formData.confirmpassword;
-  // formData Pass //
 
-  if(googleuser){
+  if (googleuser) {
     navigate("/");
     return Swal.fire({
-      title: "Successfully signed in",
-      icon: "success"
+      title: "Successfully signed up",
+      icon: "success",
     });
   }
 
   const handleSignUp = (e) => {
     e.preventDefault();
+
+      const name = e.target.name.value;
+      const email = e.target.email.value;
+      const password = e.target.password.value;
+      const confirmpassword = e.target.confirmpassword.value;
+      console.log(name,email,password,confirmpassword);
+
     if (password.length < 6) {
       return toast.error("pls input 6 digit");
     }
@@ -50,12 +46,14 @@ const [signInWithGoogle, googleuser, googleloading, googleerror] = useSignInWith
       navigate("/");
       return toast.success("Signup Succesfull");
     }
-
   };
 
-  const handleGoogleSignUp = ()=>{
+  //****** Sign In With Google **********//
+  const handleGoogleSignUp = () => {
     signInWithGoogle();
-  }
+  };
+  //****** Sign In With Google **********//
+
   return (
     <>
       <section>
@@ -72,7 +70,6 @@ const [signInWithGoogle, googleuser, googleloading, googleerror] = useSignInWith
                     <label> Full Name </label>
                     <div>
                       <input
-                        onChange={handleChange}
                         name="name"
                         type="text"
                         placeholder="Full Name"
@@ -84,7 +81,6 @@ const [signInWithGoogle, googleuser, googleloading, googleerror] = useSignInWith
                     <label className=""> Email address </label>
                     <div>
                       <input
-                        onChange={handleChange}
                         name="email"
                         type="email"
                         placeholder="Email"
@@ -98,7 +94,6 @@ const [signInWithGoogle, googleuser, googleloading, googleerror] = useSignInWith
                     </div>
                     <div>
                       <input
-                        onChange={handleChange}
                         name="password"
                         type="password"
                         placeholder="Password"
@@ -113,7 +108,6 @@ const [signInWithGoogle, googleuser, googleloading, googleerror] = useSignInWith
                     </div>
                     <div>
                       <input
-                        onChange={handleChange}
                         name="confirmpassword"
                         type="password"
                         placeholder="Confirm Password"
@@ -131,7 +125,11 @@ const [signInWithGoogle, googleuser, googleloading, googleerror] = useSignInWith
                 </div>
               </form>
               <div>
-                <button onClick={handleGoogleSignUp} type="button" className="Signup_Google signUpBtn">
+                <button
+                  onClick={handleGoogleSignUp}
+                  type="button"
+                  className="Signup_Google signUpBtn"
+                >
                   Sign up with Google
                 </button>
                 <button type="button" className="Signup_Facebook signUpBtn">

@@ -4,41 +4,25 @@ import { Navigate, useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 
+const PrivateRoute = ({ children }) => {
+  const [user] = useAuthState(auth);
+  const location = useLocation();
 
-const PrivateRoute = ({children}) => {
-    const [user] = useAuthState(auth);
-    const location = useLocation();
+  useEffect(() => {
+    if (!user) {
+      Swal.fire({
+        title: "Plese sign in first",
+        icon: "warning",
+      });
+    }
+  }, [user]);
 
-    // useEffect(() => {
-    //     if(!user) {
-    //         Swal.fire({
-    //             title:"pls Payment 500 tk",
-    //             icon:"warning"
-    //         });
-    //     }
-    // },[user]);
-    // if (!user) {
-    //     return <Navigate to='/getjobs' state={{from:location}} replace/>;
-    // }
-    // // return (
-    // //     {children}
-    // // )
+  if (!user) {
+    return <Navigate to="/Signup" state={{ from: location }} replace />;
+  }
+  return <>{children}</>;
 
-    useEffect(() => {
-        if (!user) {
-          Swal.fire({
-            title: "Plese sign in first",
-            icon: "warning",
-          });
-        }
-      }, [user]);
-
-      if (!user) {
-        return <Navigate to="/Signup" state={{ from: location }} replace />;
-      }
-  return (
-    <>{children}</>
-  )
-}
+  
+};
 
 export default PrivateRoute;

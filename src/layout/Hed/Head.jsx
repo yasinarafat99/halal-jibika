@@ -9,6 +9,13 @@ import { useState } from "react";
 function Head() {
   const [user] = useAuthState(auth);
   const [signOut, loading, error] = useSignOut(auth);
+
+  const handleCheckboxClick = () => {
+    const checkbox = document.getElementById("check");
+    if (checkbox.checked) {
+      checkbox.checked = false;
+    }
+  }
   return (
     <>
       <nav>
@@ -17,7 +24,7 @@ function Head() {
           <FaBars />
         </label>
         <label className="logo">
-          <NavLink to={"/"}>
+          <NavLink to={"/"} onClick={handleCheckboxClick}>
             {" "}
             <img src={logo} alt="Halal Jibika" />{" "}
           </NavLink>
@@ -25,24 +32,24 @@ function Head() {
         <div className="menu">
           <ul>
             <li>
-              <NavLink to={"/home"}>Home</NavLink>
+              <NavLink to={"/home"} onClick={handleCheckboxClick}>Home</NavLink>
             </li>
             <li>
-              <NavLink to={"/jobs"}>Jobs</NavLink>
+              <NavLink to={"/jobs"} onClick={handleCheckboxClick}>Jobs</NavLink>
             </li>
             <li>
-              <NavLink to={"/favorite"}>Favorite</NavLink>
+              <NavLink to={"/favorite"} onClick={handleCheckboxClick}>Favorite</NavLink>
             </li>
             <li>
-              <NavLink to={"/about"}>About</NavLink>
+              <NavLink to={"/about"} onClick={handleCheckboxClick}>About</NavLink>
             </li>
             <li>
-              <NavLink to={"/contact"}>Contact</NavLink>
+              <NavLink to={"/contact"} onClick={handleCheckboxClick}>Contact</NavLink>
             </li>
             {
               !user ? (
                 <li>
-                  <NavLink className="signup" to={"/signup"}>
+                  <NavLink className="signup" to={"/signup"} onClick={handleCheckboxClick}>
                     Sign up
                   </NavLink>
                 </li>

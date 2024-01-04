@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 .home_main_container {
-  /* background-color: #f0f2f5; */
   width: 100%;
   height: 100vh;
   display: grid;
@@ -18,7 +17,6 @@
 .banner_text {
   position: relative;
   line-height: 50px;
-  /* background-color: #f0f2f5; */
   color: #65676b;
 }
 .exploreBtn {
@@ -33,7 +31,6 @@
   font-weight: 500;
   border: 1px solid #ffffff;
   background-color: #0866ff;
-  /* background-color: #ABE2E9; */
   color: #ffffff;
   border-radius: 50px;
   cursor: pointer;
@@ -46,9 +43,7 @@
   border: 1px solid #ffffff;
 }
 
-.right_container {
-  margin: 1rem 0 0 5rem ;
-}
+
 .right_container ul{
   background-color: #E4E6E9;
   border-radius: 5px;
@@ -64,18 +59,6 @@
   text-decoration: underline;
 }
 
-/* .home_container{
-    max-width: 1280px;
-    height: 100vh;
-} */
-
-/* .home_main_container{
-    wi
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-} */
 
 /* Home Page Responsive */
 
@@ -125,7 +108,8 @@
     margin-left: 0;
   }
   .right_container {
-    padding: 15px;
+    padding-left: 1px;
     font-size: 18px;
   }
+
 }

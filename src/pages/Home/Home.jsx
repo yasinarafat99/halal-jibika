@@ -11,7 +11,6 @@ function Home() {
 
   const [latestJobs, setLatestJobs] = useState();
 
-  console.log(latestJobs);
   useEffect(() => {
     const latestJobsFunc = async () => {
       try {
@@ -45,8 +44,10 @@ function Home() {
             <h3>Latest Jobs</h3>
             {latestJobs?.slice(0, 5).map((job) => (
               <ul key={job.id}>
-                <NavLink> <CiLink className="link" /> {job.title}</NavLink>
-               
+                <NavLink to={`/detailsjob/${job.id}`}>
+                  {" "}
+                  <CiLink className="link" /> {job.title}
+                </NavLink>
               </ul>
             ))}
           </div>

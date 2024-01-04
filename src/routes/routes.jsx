@@ -10,6 +10,9 @@ import SignIn from "../pages/Register/SignIn/SignIn";
 import Jobs from "../pages/JOBS SECTOR/Jobs/Jobs";
 import GetJobs from "../pages/JOBS SECTOR/GetJobs/GetJobs";
 import PrivateRoute from "./PrivateRoute";
+import DetailsJob from "../pages/JOBS SECTOR/DetailsJobs/DetailsJob";
+import CreateJob from "../pages/JOBS SECTOR/CreateJobs/CReateJob";
+import UpdateJob from "../pages/JOBS SECTOR/UpdateJob/UpdateJob";
 
 const routes = createBrowserRouter([
   {
@@ -33,7 +36,16 @@ const routes = createBrowserRouter([
       {
         path: "/jobs",
         element: <Jobs />,
-        loader: () => fetch("http://localhost:9000/jobs"),
+      },
+      {
+        path:'detailsjob/:detailsJobId',
+        element:<DetailsJob />,
+        loader:({params}) => fetch(`http://localhost:9000/jobs/${params.detailsJobId}`)
+      },
+      {
+        path:'/updatejob/:updateId',
+        element:<UpdateJob />,
+        loader:({params}) => fetch(`http://localhost:9000/jobs/${params.updateId}`)
       },
       {
         path: "/about",
@@ -41,6 +53,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/contact",
+        // element: <Contact />
         element: (
           <PrivateRoute>
             <Contact/>
@@ -54,6 +67,10 @@ const routes = createBrowserRouter([
             <Favorite />
           </PrivateRoute>
         ),
+      },
+      {
+        path:'/createjob',
+        element:<CreateJob />
       },
     ],
   },
