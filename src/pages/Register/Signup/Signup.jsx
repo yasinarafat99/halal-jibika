@@ -14,12 +14,10 @@ function Signup() {
   const [signInWithGoogle, googleuser, googleloading, googleerror] =
     useSignInWithGoogle(auth);
 
-
-
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
-  if (googleuser) {
+  if (googleuser || user) {
     navigate("/");
     return Swal.fire({
       title: "Successfully signed up",
@@ -30,11 +28,11 @@ function Signup() {
   const handleSignUp = (e) => {
     e.preventDefault();
 
-      const name = e.target.name.value;
-      const email = e.target.email.value;
-      const password = e.target.password.value;
-      const confirmpassword = e.target.confirmpassword.value;
-      console.log(name,email,password,confirmpassword);
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const confirmpassword = e.target.confirmpassword.value;
+    console.log(name, email, password, confirmpassword);
 
     if (password.length < 6) {
       return toast.error("pls input 6 digit");
@@ -43,7 +41,6 @@ function Signup() {
       return toast.error("Password doesn't match!");
     } else {
       createUserWithEmailAndPassword(email, password);
-      navigate("/");
       return toast.success("Signup Succesfull");
     }
   };

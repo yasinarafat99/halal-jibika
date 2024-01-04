@@ -5,20 +5,24 @@ import Swal from "sweetalert2";
 import { useEffect } from "react";
 
 const PrivateRoute = ({ children }) => {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const location = useLocation();
 
   useEffect(() => {
-    if (!user) {
-      Swal.fire({
+    if (!user && !loading) {
+      return Swal.fire({
         title: "Plese sign in first",
         icon: "warning",
       });
     }
   }, [user]);
 
+  if(loading){
+    return <h2>Loading data...</h2>
+  }
+
   if (!user) {
-    return <Navigate to="/Signup" state={{ from: location }} replace />;
+    return <Navigate to="/signup" state={{ from: location }} replace />;
   }
   return <>{children}</>;
 

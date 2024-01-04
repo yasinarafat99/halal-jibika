@@ -39,7 +39,7 @@ function DetailsJob() {
                   <p>{description}</p>
                   </div>
                 <div className="applyBtn">
-                 <NavLink to={!user ? "/signin" : '/contact'}> <button>Login To Apply</button></NavLink>
+                 <NavLink to={!user ? "/signin" : '/contact'} className="applyBtnNavLink"> <button className='applyBtnButton'>Login To Apply</button></NavLink>
                 </div>
                 </div>
                

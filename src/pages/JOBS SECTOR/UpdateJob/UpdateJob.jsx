@@ -4,16 +4,11 @@ import axios from "axios";
 import { useLoaderData, useNavigate } from "react-router-dom";
 
 const UpdateJob = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
-    const {id,
-        title,
-        companyName,
-        description,
-        location,
-        logo,
-        position} = useLoaderData();
-    // console.log(post)
+  const { id, title, companyName, description, location, logo, position } =
+    useLoaderData();
+  // console.log(post)
   const [formData, setFormData] = useState({
     title,
     logo,
@@ -32,7 +27,7 @@ const UpdateJob = () => {
     e.preventDefault();
     // Add logic to send the form data to the server
     await axios.put(`http://localhost:9000/jobs/${id}`, formData);
-    navigate('/jobs');
+    navigate("/jobs");
     console.log("Form data updated:", formData);
     // Reset the form after submission if needed
     setFormData({
@@ -47,63 +42,103 @@ const UpdateJob = () => {
 
   return (
     <div className="update-post-container">
-        <h1>Update Job</h1>
-      <form onSubmit={handleSubmit} className="updateForm">
-        <label className="updateLavel">
-          Title: 
-          <input className="updateInput"
-            type="text"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-          />
-        </label>
-        <label className="updateLavel">
-          Logo URL:
-          <input
-            type="text"
-            name="logo"
-            value={formData.logo}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Company Name:
-          <input
-            type="text"
-            name="companyName"
-            value={formData.companyName}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Location:
-          <input
-            type="text"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Position:
-          <input
-            type="text"
-            name="position"
-            value={formData.position}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Description:
-          <textarea className="updateTextarea"
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-          />
-        </label>
-        <button className="updateButton" type="submit">Post Job</button>
-      </form>
+      <h1>Update Job</h1>
+      <div className="updateFormContainer">
+        <form onSubmit={handleSubmit} className="updateForm">
+          <div className="updateLavelContainer">
+            <label className="updateLavel">
+              Title:
+              <input
+                className="updateInput"
+                type="text"
+                name="title"
+                value={formData.title}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+
+          <div className="updateLavelContainer">
+            <label className="updateLavel">
+              Logo URL:
+              <input
+              className="updateInput"
+                type="text"
+                name="logo"
+                value={formData.logo}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+          <div className="updateLavelContainer">
+            <label>
+              Company Name:
+              <input
+              className="updateInput"
+                type="text"
+                name="companyName"
+                value={formData.companyName}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+            
+          <div className="updateLavelContainer">
+            <label>
+            Company Name:
+            <input
+            className="updateInput"
+              type="text"
+              name="companyName"
+              value={formData.companyName}
+              onChange={handleChange}
+            />
+          </label>
+            </div>
+            
+            <div className="updateLavelContainer">
+             <label>
+            Location:
+            <input
+            className="updateInput"
+              type="text"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+            />
+          </label>
+            </div>
+
+            <div className="updateLavelContainer">
+            <label>
+            Position:
+            <input
+            className="updateInput"
+              type="text"
+              name="position"
+              value={formData.position}
+              onChange={handleChange}
+            />
+          </label>
+          </div>
+         
+          <div className="updateLavelContainer">
+           <label>
+            Description:
+            <textarea
+              className="updateTextarea"
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+            />
+          </label> 
+          </div>
+          
+          <button className="updateButton" type="submit">
+            Post Job
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

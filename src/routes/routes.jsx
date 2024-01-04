@@ -53,12 +53,12 @@ const routes = createBrowserRouter([
       },
       {
         path: "/contact",
-        // element: <Contact />
-        element: (
-          <PrivateRoute>
-            <Contact/>
-          </PrivateRoute>
-        ),
+        element: <Contact />
+        // element: (
+        //   <PrivateRoute>
+        //     <Contact/>
+        //   </PrivateRoute>
+        // ),
       },
       {
         path: "/favorite",
