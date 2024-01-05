@@ -11,11 +11,11 @@ const PrivateRoute = ({ children }) => {
   useEffect(() => {
     if (!user && !loading) {
       return Swal.fire({
-        title: "Plese sign in first",
+        title: "Plese signup in first",
         icon: "warning",
       });
     }
-  }, [user]);
+  }, []);
 
   if(loading){
     return <h2>Loading data...</h2>

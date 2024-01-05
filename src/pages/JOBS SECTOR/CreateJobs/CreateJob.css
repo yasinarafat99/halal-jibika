@@ -10,56 +10,23 @@
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
 
-.update-post-container h1 {
+.create-post-container h1 {
   text-align: center;
   color: #333;
 }
 
-.updateFormContainer {
+.creatFormContainer {
   margin-top: 20px;
 }
 
-.updateForm {
+.createForm {
   display: flex;
   flex-direction: column;
 }
 
-.updateLavelContainer {
-  margin-bottom: 15px;
-}
 
-.updateLavel {
-  font-size: 16px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 5px;
-}
-
-.updateInput,
-.updateTextarea {
-  width: 100%;
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.updateButton {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 15px;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.updateButton:hover {
-  background-color: #45a049;
-}
-
-.updateInput,
-.updateTextarea {
+.createInput,
+.creatTextArea {
   width: 100%;
   padding: 12px;
   font-size: 16px;
@@ -68,24 +35,24 @@
   transition: border-color 0.3s ease-in-out;
 }
 
-.updateInput:focus,
-.updateTextarea:focus {
+.createInput:focus,
+.creatTextArea:focus {
   outline: none;
   border-color: #4caf50;
 }
 
-.updateLavelContainer {
+.creatLavelContainer {
   margin-bottom: 20px;
 }
 
-.updateLavel {
+.createLavel {
   font-size: 18px;
   font-weight: bold;
   color: #333;
   margin-bottom: 10px;
 }
 
-.updateButton {
+.createButton {
   background-color: #4caf50;
   color: white;
   padding: 15px;
@@ -96,7 +63,7 @@
   transition: background-color 0.3s ease-in-out;
 }
 
-.updateButton:hover {
+.createButton:hover {
   background-color: #45a049;
 }
 
@@ -104,24 +71,24 @@
 /* Responsive Styles */
 
 @media (max-width: 1114px) {
-  .update-post-container {
+  .create-post-container {
     padding-top: 90px;
   }
 }
 @media (max-width: 800px) {
-  .update-post-container {
+  .create-post-container {
     padding-top: 90px;
   }
 }
 
 @media (max-width: 768px) {
-  .update-post-container {
+  .create-post-container {
     padding-top: 90px;
   }
 }
 
 @media (max-width: 480px) {
-  .update-post-container {
+  .create-post-container {
     padding-top: 90px;
   }
 }

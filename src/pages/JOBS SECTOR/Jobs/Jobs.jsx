@@ -2,7 +2,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import exparnce from "../../../assets/images/Exp_brief.svg";
 import { BiSolidInstitution } from "react-icons/bi";
 import "./Jobs.css";
-import { Link, NavLink, useLoaderData } from "react-router-dom";
+import { Link, NavLink, Navigate, useNavigate } from "react-router-dom";
 
 // CRUD Icon //
 import { MdOutlineFavoriteBorder } from "react-icons/md";
@@ -10,15 +10,14 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from "../../../Firbase/firbase.config";
+import Swal from "sweetalert2";
 // ***************************************************************//
 
 function Jobs({ job={}, deletPost }) {
-  // if (!job) {
-  //   return <div>Loading...</div>;
-  // // } else{
-  // //    return <Jobs />
-  // }
+  const navigate = useNavigate();
+  const [user] = useAuthState(auth);
   const {
     id,
     title,
@@ -30,30 +29,25 @@ function Jobs({ job={}, deletPost }) {
     isFavorite,
   } = job;
 
-  console.log(id)
-
-  // const [allJob, setAllJob] = useState();
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const { data } = await axios.get("http://localhost:9000/jobs");
-  //     setAllJob(data);
-  //   };
-  //   getData();
-  // }, []);
-
-  // const deletPost = async (uniqe) => {
-  //   await axios.delete(`http://localhost:9000/jobs/${uniqe}`);
-  //   const filterdPost = allJob.filter((job) => job.id !== uniqe);
-  //   setAllJob(filterdPost);
-  // };
 
   const FavJob = async (uniqe) => {
-    const jobObj = {
+    if(!user){
+      return Swal.fire({
+        title:'First sign Up',
+        icon:'warning'
+      });
+    };
+    
+    if(user) {
+          const jobObj = {
       ...job,
       isFavorite: !isFavorite,
     };
     await axios.put(`http://localhost:9000/jobs/${uniqe}`, jobObj);
-  };
+    navigate('/favorite')
+  }
+    }
+
 
   return (
     <>
@@ -68,7 +62,7 @@ function Jobs({ job={}, deletPost }) {
                 </NavLink>
               </div>
               <div className="addIcon">
-                <NavLink>
+                <NavLink to={'/createjob'}>
                   <IoIosAddCircleOutline />
                 </NavLink>
               </div>

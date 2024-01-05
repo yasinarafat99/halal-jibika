@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import "./CreateJob.css"; // Import your CSS file
+import "./CreateJob.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const CreateJob = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     id: "",
     title: "",
@@ -20,11 +22,8 @@ const CreateJob = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add logic to send the form data to the server
-    const response = await axios.post("http://localhost:9000/jobs", formData);
-
-    console.log("Form data submitted:", response.data);
-    // Reset the form after submission if needed
+    await axios.post("http://localhost:9000/jobs", formData);
+    navigate('/getjobs')
     setFormData({
       id: "",
       title: "",
@@ -38,62 +37,89 @@ const CreateJob = () => {
 
   return (
     <div className="create-post-container">
-      <form onSubmit={handleSubmit}>
-        <label>
-          Title:
-          <input
-            type="text"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Logo URL:
-          <input
-            type="text"
-            name="logo"
-            value={formData.logo}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Company Name:
-          <input
-            type="text"
-            name="companyName"
-            value={formData.companyName}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Location:
-          <input
-            type="text"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Position:
-          <input
-            type="text"
-            name="position"
-            value={formData.position}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Description:
-          <textarea
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-          />
-        </label>
-        <button type="submit">Post Job</button>
-      </form>
+      <h1>Create Post</h1>
+      <div className="creatFormContainer">
+        <form onSubmit={handleSubmit} className="createForm">
+          <div className="creatLavelContainer">
+            <label className="createLavel">
+              Title:
+              <input
+                className="createInput"
+                type="text"
+                name="title"
+                value={formData.title}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+          <div className="creatLavelContainer">
+            <label className="createLavel">
+              Logo URL:
+              <input
+                className="createInput"
+                type="text"
+                name="logo"
+                value={formData.logo}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+
+          <div className="creatLavelContainer">
+            <label className="createLavel">
+              Company Name:
+              <input
+                className="createInput"
+                type="text"
+                name="companyName"
+                value={formData.companyName}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+          <div className="creatLavelContainer">
+            <label className="createLavel">
+              Location:
+              <input
+                className="createInput"
+                type="text"
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+
+          <div className="creatLavelContainer">
+            <label className="createLavel">
+              Position:
+              <input
+                className="createInput"
+                type="text"
+                name="position"
+                value={formData.position}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+
+          <div className="creatLavelContainer">
+            <label className="createLavel">
+              Description:
+              <textarea
+                className="creatTextArea"
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+
+          <button className="createButton" type="submit">
+            Post Job
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

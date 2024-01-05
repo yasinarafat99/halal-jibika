@@ -44,7 +44,7 @@
   border-radius: 4px;
 }
 
-.updateButton {
+/* .updateButton {
   background-color: #4caf50;
   color: white;
   padding: 10px 15px;
@@ -56,7 +56,7 @@
 
 .updateButton:hover {
   background-color: #45a049;
-}
+} */
 
 .updateInput,
 .updateTextarea {

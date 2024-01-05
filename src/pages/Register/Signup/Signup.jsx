@@ -135,7 +135,7 @@ function Signup() {
                   Sign up with Google
                 </button>
                 <button type="button" className="Signup_Facebook signUpBtn">
-                  Sign up with Facebook
+                  Sign up with github
                 </button>
               </div>
             </div>

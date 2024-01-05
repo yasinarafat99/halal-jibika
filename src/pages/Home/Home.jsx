@@ -31,7 +31,7 @@ function Home() {
             <div className="banner_text">
               <h1>Unlock Your Career Potential with Our Job Portal.</h1>
               <div className="exploreBtn">
-                <Link to={!user ? "/signin" : "/getjobs"}>
+                <Link to={"/jobs"}>
                   <button>Explore Now</button>
                 </Link>
               </div>
@@ -50,7 +50,7 @@ function Home() {
                 </NavLink>
               </ul>
             ))}
-            <div className="explorebtn"><NavLink>Explore All Job</NavLink></div>
+            <div className="explorebtn"><NavLink to={'/jobs'}>Explore All Job</NavLink></div>
           </div>
         </div>
       </div>

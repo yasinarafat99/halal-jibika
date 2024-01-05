@@ -35,10 +35,12 @@ function Head() {
               <NavLink to={"/home"} onClick={handleCheckboxClick}>Home</NavLink>
             </li>
             <li>
-              <NavLink to={"/getjobs"} onClick={handleCheckboxClick}>Jobs</NavLink>
+              <NavLink to={"/jobs"} onClick={handleCheckboxClick}>Jobs</NavLink>
             </li>
             <li>
-              <NavLink to={"/favorite"} onClick={handleCheckboxClick}>Favorite</NavLink>
+              <NavLink to={
+                
+                "/favorite"} onClick={handleCheckboxClick}>Favorite</NavLink>
             </li>
             <li>
               <NavLink to={"/about"} onClick={handleCheckboxClick}>About</NavLink>
