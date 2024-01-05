@@ -33,7 +33,6 @@ function Contact() {
       navigate('/');
 
     }
-    console.log(inputValue);
   })
   return (
     <>

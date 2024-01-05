@@ -13,7 +13,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 // ***************************************************************//
 
-function Jobs({ job }) {
+function Jobs({ job={}, deletPost }) {
+  // if (!job) {
+  //   return <div>Loading...</div>;
+  // // } else{
+  // //    return <Jobs />
+  // }
   const {
     id,
     title,
@@ -25,20 +30,22 @@ function Jobs({ job }) {
     isFavorite,
   } = job;
 
-  const [allJob, setAllJob] = useState();
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await axios.get("http://localhost:9000/jobs");
-      setAllJob(data);
-    };
-    getData();
-  }, []);
+  console.log(id)
 
-  const deletPost = async (unique) => {
-    await axios.delete(`http://localhost:9000/jobs/${unique}`);
-    const filterdPost = allJob.filter((job) => job.id !== id);
-    setAllJob(filterdPost);
-  };
+  // const [allJob, setAllJob] = useState();
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const { data } = await axios.get("http://localhost:9000/jobs");
+  //     setAllJob(data);
+  //   };
+  //   getData();
+  // }, []);
+
+  // const deletPost = async (uniqe) => {
+  //   await axios.delete(`http://localhost:9000/jobs/${uniqe}`);
+  //   const filterdPost = allJob.filter((job) => job.id !== uniqe);
+  //   setAllJob(filterdPost);
+  // };
 
   const FavJob = async (uniqe) => {
     const jobObj = {
@@ -52,7 +59,7 @@ function Jobs({ job }) {
     <>
       <div className="jobFullWidth">
         <div className="jobsCardBG">
-          <div className="jobCard" key={id}>
+          <div className="jobCard" /*key={id}*/ > 
             {/* CRUD Icon */}
             <div className="crudIcon">
               <div className="favoriteIcon">

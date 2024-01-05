@@ -14,12 +14,19 @@ function GetJobs() {
     };
     getData();
   }, []);
+
+  const deletPost = async (uniqe) => {
+    await axios.delete(`http://localhost:9000/jobs/${uniqe}`);
+    const filterdPost = allJob.filter((job) => job.id !== uniqe);
+    setAllJob(filterdPost);
+  };
+
     
   return (
     <>
         {
           allJob &&
-          allJob.map((job) => (<Jobs job={job} key={job.id}/>))
+          allJob.map((job) => <Jobs job={job} key={job.id} deletPost={deletPost}/>)
         
         }
     </>

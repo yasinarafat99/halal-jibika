@@ -16,12 +16,11 @@ function FavoriteShow({fav}) {
         logo,
         position,
         isFavorite,} = fav;
-    console.log(fav)
   return (
     <>
         <div className="jobFullWidth">
-        <div className="jobsCardBG">
-          <div className="jobCard" key={id}>
+        <div className="jobsCardBG" key={id}>
+          <div className="jobCard">
             {/* CRUD Icon */}
            
             {/* CRUD Icon */}

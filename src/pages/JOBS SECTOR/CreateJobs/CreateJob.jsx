@@ -4,6 +4,7 @@ import axios from "axios";
 
 const CreateJob = () => {
   const [formData, setFormData] = useState({
+    id: "",
     title: "",
     logo: "",
     companyName: "",
@@ -25,6 +26,7 @@ const CreateJob = () => {
     console.log("Form data submitted:", response.data);
     // Reset the form after submission if needed
     setFormData({
+      id: "",
       title: "",
       logo: "",
       companyName: "",

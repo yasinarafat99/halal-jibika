@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../../Firbase/firbase.config';
-import { json } from 'react-router-dom';
+// import { useAuthState } from 'react-firebase-hooks/auth';
+// import { auth } from '../../Firbase/firbase.config';
+// import { json } from 'react-router-dom';
 import FavoriteShow from './FavoriteShow';
 
 function Favorite() {
   const [favData, setFavData] = useState();
-  console.log(favData)
   useEffect(()=>{
     const favDataFunc = async ()=>{
       try{
@@ -22,7 +21,7 @@ function Favorite() {
   return (
     <> 
     {
-      favData?.map((fav) => (<FavoriteShow fav={fav}/>))
+      favData?.map((fav) => (<FavoriteShow fav={fav} key={fav.id}/>))
     }
 
     {/* <h1>Im Favorite page</h1>

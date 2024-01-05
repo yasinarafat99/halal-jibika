@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./UpdateJob.css"; // Import your CSS file
+import "./UpdateJob.css"; 
 import axios from "axios";
 import { useLoaderData, useNavigate } from "react-router-dom";
 
@@ -8,8 +8,8 @@ const UpdateJob = () => {
 
   const { id, title, companyName, description, location, logo, position } =
     useLoaderData();
-  // console.log(post)
   const [formData, setFormData] = useState({
+
     title,
     logo,
     companyName,
@@ -25,11 +25,8 @@ const UpdateJob = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add logic to send the form data to the server
     await axios.put(`http://localhost:9000/jobs/${id}`, formData);
-    navigate("/jobs");
-    console.log("Form data updated:", formData);
-    // Reset the form after submission if needed
+    navigate("/getjobs");
     setFormData({
       title: "",
       logo: "",
@@ -46,6 +43,7 @@ const UpdateJob = () => {
       <div className="updateFormContainer">
         <form onSubmit={handleSubmit} className="updateForm">
           <div className="updateLavelContainer">
+         
             <label className="updateLavel">
               Title:
               <input

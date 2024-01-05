@@ -50,6 +50,7 @@ function Home() {
                 </NavLink>
               </ul>
             ))}
+            <div className="explorebtn"><NavLink>Explore All Job</NavLink></div>
           </div>
         </div>
       </div>
