@@ -1,15 +1,15 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {getAuth} from 'firebase/auth'
+import { getAuth } from 'firebase/auth';
 const firebaseConfig = {
-  apiKey: "AIzaSyDiN6SyynyR2rMtDAUGMFJ7GsqVs60_80s",
-  authDomain: "halal-jibika-7bc61.firebaseapp.com",
-  projectId: "halal-jibika-7bc61",
-  storageBucket: "halal-jibika-7bc61.appspot.com",
-  messagingSenderId: "239951708895",
-  appId: "1:239951708895:web:0eba8a13c805bd0e889f6a"
+  apiKey: "AIzaSyButsRO6YuUmcba1wHWU3aaDL4PIevwyjA",
+  authDomain: "halaljibika-web-app.firebaseapp.com",
+  projectId: "halaljibika-web-app",
+  storageBucket: "halaljibika-web-app.appspot.com",
+  messagingSenderId: "579146386142",
+  appId: "1:579146386142:web:0894819b73c5fd0880d04f",
+  measurementId: "G-W8EESWL415"
 };
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app)
+export const auth = getAuth (app)

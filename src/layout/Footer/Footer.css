@@ -22,7 +22,7 @@ ul{
 .footer{
 	background-color: #24262b;
     padding: 70px 0;
-	position: relative;
+	/* position: relative; */
 
 }
 .footer-col{
@@ -84,6 +84,9 @@ ul{
 .footer-col .social-links a:hover{
 	color: #24262b;
 	background-color: #797575;
+}
+.footer li a:hover{
+	background: none;
 }
 
 /*responsive*/

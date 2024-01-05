@@ -53,7 +53,7 @@ function Jobs({ job={}, deletPost }) {
     <>
       <div className="jobFullWidth">
         <div className="jobsCardBG">
-          <div className="jobCard" /*key={id}*/ > 
+          <div className="jobCard"> 
             {/* CRUD Icon */}
             <div className="crudIcon">
               <div className="favoriteIcon">
@@ -99,7 +99,7 @@ function Jobs({ job={}, deletPost }) {
                   <button>Apply Now</button>
                 </NavLink>
               </div>
-              {/* <Link to={`/DetailsJob/${id}`}>Apply Now</Link> */}
+             
             </div>
           </div>
         </div>

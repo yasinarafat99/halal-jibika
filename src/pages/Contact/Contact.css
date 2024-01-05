@@ -20,7 +20,6 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  /* border-bottom: 1px solid blue; */
   outline: none;
   font-size: 17px;
   color: rgb(23, 23, 23);
@@ -28,7 +27,6 @@
 }
 
 .contactInputBorder {
-  /* border: 1px solid blue; */
   background-color: #f1f3f5;
   border: 1px solid rgb(91, 88, 88);
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;

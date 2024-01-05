@@ -1,10 +1,9 @@
-import { Link, NavLink } from "react-router-dom"; //  Import NavLink
-import { FaBars } from "react-icons/fa"; // Import Icon from react
-import logo from "../../assets/images/halalaJibikaLogo.png"; // iogo-img import
-import "./Hed.css"; // css import
+import { Link, NavLink } from "react-router-dom"; 
+import { FaBars } from "react-icons/fa"; 
+import logo from "../../assets/images/halalaJibikaLogo.png";
+import "./Hed.css"; 
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { auth } from "../../Firbase/firbase.config";
-import { useState } from "react";
 
 function Head() {
   const [user] = useAuthState(auth);
@@ -62,10 +61,6 @@ function Head() {
                   alt="user"
                 />
               )
-
-              // <NavLink className="userProfile">
-              //     <img onClick={() => signOut()} className="userImage" src={user?.photoURL} alt="" />
-              //   </NavLink>
             }
           </ul>
         </div>

@@ -12,7 +12,6 @@ function SignIn() {
     loading,
     error,
   ] = useSignInWithEmailAndPassword(auth);
-  console.log(error)
 
 
  const signInHandle = ((e) => {
@@ -32,7 +31,6 @@ function SignIn() {
  if(error){
   var err = "Pls Enter Valid Input";
  }
-//  console.log(err)
  
   return (
     <>

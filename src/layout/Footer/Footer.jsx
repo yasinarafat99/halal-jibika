@@ -5,6 +5,7 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 const social_iconsStyles = { color: "#fff", fontSize: "20px" };
 function Footer() {
@@ -17,16 +18,16 @@ function Footer() {
               <h4>company</h4>
               <ul>
                 <li>
-                  <a href="#">about us</a>
+                  <Link>about us</Link>
                 </li>
                 <li>
-                  <a href="#">our services</a>
+                  <Link>our services</Link>
                 </li>
                 <li>
-                  <a href="#">privacy policy</a>
+                  <Link>privacy policy</Link>
                 </li>
                 <li>
-                  <a href="#">Contact Us</a>
+                  <Link>Contact Us</Link>
                 </li>
               </ul>
             </div>
@@ -34,16 +35,16 @@ function Footer() {
               <h4>get help</h4>
               <ul>
                 <li>
-                  <a href="#">FAQ</a>
+                  <Link>FAQ</Link>
                 </li>
                 <li>
-                  <a href="#">Career Counseling</a>
+                  <Link>Career Counseling</Link>
                 </li>
                 <li>
-                  <a href="#">Employability Test</a>
+                  <Link>Employability Test</Link>
                 </li>
                 <li>
-                  <a href="#">Video CV new</a>
+                  <Link>Video CV new</Link>
                 </li>
               </ul>
             </div>
@@ -51,34 +52,34 @@ function Footer() {
               <h4>Job Seekers</h4>
               <ul>
                 <li>
-                  <a href="#">Jobs Panel</a>
+                  <Link>Jobs Panel</Link>
                 </li>
                 <li>
-                  <a href="#">List of Features</a>
+                  <Link>List of Features</Link>
                 </li>
                 <li>
-                  <a href="#">Create Account</a>
+                  <Link>Create Account</Link>
                 </li>
                 <li>
-                  <a href="#">Career Counseling</a>
+                  <Link> Career Counseling</Link>
                 </li>
               </ul>
             </div>
             <div className="footer-col">
               <h4>follow us</h4>
               <div className="social-links">
-                <a>
+                <Link>
                   <FaFacebookF style={social_iconsStyles} />
-                </a>
-                <a href="#">
+                </Link>
+                <Link>
                   <FaTwitter style={social_iconsStyles} />
-                </a>
-                <a href="#">
+                </Link>
+                <Link>
                   <FaInstagram style={social_iconsStyles} />
-                </a>
-                <a href="#">
+                </Link>
+                <Link>
                   <FaLinkedinIn style={social_iconsStyles} />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

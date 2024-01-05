@@ -4,7 +4,6 @@ import Jobs from '../Jobs/Jobs';
 
 function GetJobs() {
   const [allJob, setAllJob] = useState();
-  // console.log(allJob);
 
 
   useEffect(() => {

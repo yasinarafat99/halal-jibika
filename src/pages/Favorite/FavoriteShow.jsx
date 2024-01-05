@@ -1,8 +1,8 @@
-import React from "react";
 import { BiSolidInstitution } from "react-icons/bi";
 import { FaLocationDot } from "react-icons/fa6";
 import { Link, NavLink } from "react-router-dom";
 import exparnce from "../../assets/images/Exp_brief.svg";
+import './Fav.css'
 
 function FavoriteShow({ fav }) {
   const {
@@ -43,7 +43,7 @@ function FavoriteShow({ fav }) {
                     <button>Apply Now</button>
                   </NavLink>
                 </div>
-                {/* <Link to={`/DetailsJob/${id}`}>Apply Now</Link> */}
+
               </div>
             </div>
           </div>

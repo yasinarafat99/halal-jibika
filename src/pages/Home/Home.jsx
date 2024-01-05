@@ -1,13 +1,11 @@
-import { Link, NavLink, useLoaderData } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import banner from "../../assets/images/removehalalJibikaTemplae-removebg-preview.png";
 import "./Home.css";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../Firbase/firbase.config";
 import { useEffect, useState } from "react";
 import { CiLink } from "react-icons/ci";
-import { FaAws } from "react-icons/fa";
+
+
 function Home() {
-  const [user] = useAuthState(auth);
 
   const [latestJobs, setLatestJobs] = useState();
 

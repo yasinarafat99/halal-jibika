@@ -25,7 +25,7 @@ function About() {
         <li>Innovation</li>
         <li>Collaboration</li>
         <li>Diversity & Inclusion</li>
-        {/* Add more core values as needed */}
+        
       </ul>
       <h2>Why Choose Us?</h2>
       <p>

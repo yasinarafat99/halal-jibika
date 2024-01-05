@@ -40,9 +40,6 @@ function Contact() {
         <div className="formBox">
           <form className="contactInputFild" onSubmit={handleInput}>
             <div className="contactInputBorder">
-              <div>
-                <img className="conatctImg" src={/contactImg/} alt="" />
-              </div>
               <h1 className="contactHeading">CONTACT US</h1>
               <input
                 name="name"
@@ -68,14 +65,6 @@ function Contact() {
                 placeholder="Enter your number"
               />{" "}
               <br />
-              {/* <input
-                name="link"
-                value={inputValue.link}
-                onChange={changeValue}
-                type="text"
-                placeholder="Enter your website link"
-              />{" "}
-              <br /> */}
               <button className="submitBtn">Submit</button>
             </div>
           </form>

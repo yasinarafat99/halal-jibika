@@ -37,7 +37,6 @@ function Signup() {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const confirmpassword = e.target.confirmpassword.value;
-    console.log(name, email, password, confirmpassword);
 
     if (password.length < 6) {
       return toast.error("pls input 6 digit");
@@ -103,7 +102,6 @@ function Signup() {
                       ></input>
                     </div>
                   </div>
-                  {/*  */}
                   <div>
                     <div>
                       <label>Confirm Password</label>

@@ -30,7 +30,7 @@
   
   .team-member {
     text-align: center;
-    width: 45%; /* Adjust as needed for spacing on smaller screens */
+    width: 45%; 
     margin-bottom: 20px;
   }
   
@@ -64,7 +64,7 @@
  
 @media (max-width: 600px) {
   .team-member {
-    width: 100%; /* Full width on smaller screens */
+    width: 100%; 
   }
   .about-container{
       padding-top: 90px;

@@ -25,7 +25,7 @@ const UpdateJob = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios.put(`http://localhost:9000/jobs/${id}`, formData);
-    navigate("/getjobs");
+    navigate("/jobs");
     setFormData({
       title: "",
       logo: "",
